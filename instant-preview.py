@@ -13,8 +13,8 @@ class InstantPreview(sublime_plugin.EventListener):
         filename = view.file_name()
         data = filename + '----------' + body
         data = data.encode('utf-8')
-        if os.environ['PREVIEW_PORT']:
-            port = os.environ['PREVIEW_PORT']
+        if os.environ.get('PREVIEW_PORT'):
+            port = os.environ.get('PREVIEW_PORT')
         else:
             port = '8090'
         req = urllib.request.Request(url='http://localhost:' + port, data=data, method='PUT')
